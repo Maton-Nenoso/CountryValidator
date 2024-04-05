@@ -29,7 +29,7 @@ namespace CountryValidation.Countries
         /// <returns></returns>
         public override ValidationResult ValidateIndividualTaxCode(string id)
         {
-            if (!Regex.IsMatch(id, "^[0-9]{6}[-+A][0-9]{3}[0-9ABCDEFHJKLMNPRSTUVWXY]$"))
+            if (!Regex.IsMatch(id, "^[0-9]{6}[-+ABCDEFYXWVU][0-9]{3}[0-9ABCDEFHJKLMNPRSTUVWXY]$"))
             {
                 return ValidationResult.Invalid("Invalid code");
             }
@@ -40,7 +40,17 @@ namespace CountryValidation.Countries
             var centuries = new Dictionary<char, int>(){
             { '+',  1800 },
             { '-', 1900},
-            {  'A', 2000}
+            { 'Y', 1900},
+            { 'X', 1900},
+            { 'W', 1900},
+            { 'V', 1900},
+            { 'U', 1900},
+            {  'A', 2000},
+            {  'B', 2000},
+            {  'C', 2000},
+            {  'D', 2000},
+            {  'E', 2000},
+            {  'F', 2000},
             };
             year = centuries[id[6]] + year;
             try

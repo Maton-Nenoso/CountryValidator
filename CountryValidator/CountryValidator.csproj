@@ -1,28 +1,44 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <Description>Country Validator is a library that can be used to validate VAT/TVA codes, social security numbers and TINs (Tax Identification Numbers). All countries from European Union are supported and United States.</Description>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net47;</TargetFrameworks>
-    <Authors>Anghel Valentin</Authors>
-    <RepositoryType>git</RepositoryType>
-    <PackageTags>VAT, SSN, Id, Social Security Number, TIN, Countries Validator, Validator</PackageTags>
-    <PackageIcon>CountryValidator.png</PackageIcon>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/anghelvalentin/CountryValidator</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/anghelvalentin/CountryValidator</RepositoryUrl>
-    <RootNamespace>CountryValidation</RootNamespace>
-    <AssemblyName>CountryValidator</AssemblyName>
-    <PackageId>CountryValidator</PackageId>
-    <AssemblyVersion>1.1.0.3</AssemblyVersion>
-    <FileVersion>1.1.0.3</FileVersion>
-    <Version>1.1.3</Version>
-  </PropertyGroup>
+	<PropertyGroup>
+		<Description>Country Validator is a library that can be used to validate VAT/TVA codes, social security numbers and TINs (Tax Identification Numbers). All countries from European Union are supported and United States.</Description>
+		<TargetFrameworks>netstandard2.0;netstandard2.1;net48;net8.0</TargetFrameworks>
+		<Authors>Anghel Valentin, Stefan Maton</Authors>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>VAT, SSN, Id, Social Security Number, TIN, Countries Validator, Validator</PackageTags>
+		<PackageIcon>CountryValidator.png</PackageIcon>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/Maton-Nenoso/CountryValidator</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/Maton-Nenoso/CountryValidator</RepositoryUrl>
+		<RootNamespace>CountryValidation</RootNamespace>
+		<AssemblyName>CountryValidator</AssemblyName>
+		<PackageId>Nenoso.CountryValidator</PackageId>
+		<AssemblyVersion>1.1.0.4</AssemblyVersion>
+		<FileVersion>1.1.0.4</FileVersion>
+		<Version>1.1.4</Version>
+		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+	</PropertyGroup>
+	<PropertyGroup>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 
-  <ItemGroup>
-    <None Include="..\CountryValidator.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
+		<!-- If all members are not documented, you can disable the compiler warnings -->
+		<NoWarn>$(NoWarn);CS1591</NoWarn>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Include="..\CountryValidator.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+		<None Include="..\README.md" Pack="true" PackagePath="\"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- to build on non windows (https://github.com/Microsoft/dotnet/tree/main/releases/reference-assemblies) -->
+		<PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
+	</ItemGroup>
 
 </Project>
